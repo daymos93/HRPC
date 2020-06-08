@@ -58,9 +58,9 @@ HRPCDetectorMessenger::HRPCDetectorMessenger(HRPCDetectorConstruction* det)
     // name = TagetSizeX; omittable=false i.e. user needs to supply a value
     ftrdThetaPositionCMD->SetParameterName("ftrdThetaPosition",false);
     // set the aceptable range of the parameter value higher than zero
-    ftrdThetaPositionCMD->SetRange("90.>=ftrdThetaPosition>=0.");
-    // set the unit category to be length
-    //ftrdThetaPositionCMD->SetUnitCategory("Length");
+    ftrdThetaPositionCMD->SetRange("360>ftrdThetaPosition>=0.");
+    // set the unit category to be angle
+    ftrdThetaPositionCMD->SetUnitCategory("Angle");
     // can be modified at PreInit and Idle state
     ftrdThetaPositionCMD->AvailableForStates(G4State_PreInit, G4State_Idle);
     // in MT mode: do not need to be broadcasted for workers

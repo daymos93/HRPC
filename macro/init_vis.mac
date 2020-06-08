@@ -9,6 +9,20 @@
 # Change the default number of threads (in multi-threaded mode)
 #/run/numberOfThreads 4
 #
+# ------------------------------------------------------------------------------  
+# My own UI command defined by "HRPCDetectorMessenger" to set    
+# properties of geometric                           
+# ==============================================================================
+#
+# set the gas-gap thickness to match the experimental one: 1.4 mm
+/HRPC/det/setGasGapThickness 1.4 mm
+#
+# set the detector distance to (0,0,0): R
+/HRPC/det/setDetectorDistance 2. m
+#
+# set the angle theta to move the detector in YZ plane in deg
+/HRPC/det/setDetectorAngle 150. deg
+#
 # Initialize kernel
 /run/initialize
 #

@@ -62,7 +62,7 @@ HRPCDetectorConstruction::HRPCDetectorConstruction()
 
    	ftrdRPosition	=	1000.0*mm;			//distancia detector to origin
 
-   	ftrdThetaPosition	=	90.0;			//theta position of RPC in grads
+   	ftrdThetaPosition	=	90.0*deg;			//theta position of RPC in grads in ZY plane
 
    	fgasGapThickness = 1.4*mm;
 
@@ -252,9 +252,13 @@ G4VPhysicalVolume* HRPCDetectorConstruction::Construct()
 
 // Rotation Matrix for layers   (ruota elementi disegnati)
 G4RotationMatrix* rotationPlacement = new G4RotationMatrix() ;
-rotationPlacement->rotateX((ftrdThetaPosition+90)*M_PI / 180) ;		//rotazione asse x, per avere asse trapezio verticale
-rotationPlacement->rotateY(0*M_PI / 180) ;		//ruota asse y, per avere x larghezza e z spessore
-rotationPlacement->rotateZ(90*M_PI / 180) ;
+//rotationPlacement->rotateX((ftrdThetaPosition+90)*M_PI / 180) ;		//rotazione asse x, per avere asse trapezio verticale
+//rotationPlacement->rotateY(0*M_PI / 180) ;		//ruota asse y, per avere x larghezza e z spessore
+//rotationPlacement->rotateZ(90*M_PI / 180) ;
+
+rotationPlacement->rotateX(ftrdThetaPosition+90*deg) ;		//rotazione asse x, per avere asse trapezio verticale
+rotationPlacement->rotateY(0*deg) ;		//ruota asse y, per avere x larghezza e z spessore
+rotationPlacement->rotateZ(90*deg) ;
 
 
 
@@ -388,7 +392,7 @@ rotationPlacement->rotateZ(90*M_PI / 180) ;
 
 		for(G4int lyr=0;lyr<Nstrati;lyr++){				//loop per assegnare a ogni nome strato il proprio volume logico e forma e spessore
 
-			G4Trd* strato= new G4Trd(NomeStrati[lyr],spessoreStrati[lyr]/2, spessoreStrati[lyr]/2,minorBase/2, minorBase/2, Height/2); //per invertire posizione base maggiore e minore basta invertirli nell'inserimento
+			G4Trd* strato= new G4Trd(NomeStrati[lyr],spessoreStrati[lyr]/2, spessoreStrati[lyr]/2,majorBase/2, majorBase/2, Height/2); //per invertire posizione base maggiore e minore basta invertirli nell'inserimento
 			//G4Box* strato= new G4Box(NomeStrati[lyr],spessoreStrati[lyr]/2, minorBase/2,Height/2);
 			G4LogicalVolume* logicStrato = new G4LogicalVolume(strato, MatStrati[lyr], NomeStratiLog[lyr]) ;
 
@@ -441,8 +445,11 @@ rotationPlacement->rotateZ(90*M_PI / 180) ;
 
 G4cout << "----------------------RE4-2 KODEL ------------------------------------" << G4endl ;
 
-G4double ZTranslation= ftrdRPosition*cos(ftrdThetaPosition*M_PI/180);	//posizione di partenza su asse z da dove posizionare primo layer
-G4double YTranslation= ftrdRPosition*sin(ftrdThetaPosition*M_PI/180);
+//G4double ZTranslation= ftrdRPosition*cos(ftrdThetaPosition*M_PI/180);	//posizione di partenza su asse z da dove posizionare primo layer
+//G4double YTranslation= ftrdRPosition*sin(ftrdThetaPosition*M_PI/180);
+
+G4double ZTranslation= ftrdRPosition*cos(ftrdThetaPosition);	//posizione di partenza su asse z da dove posizionare primo layer
+G4double YTranslation= ftrdRPosition*sin(ftrdThetaPosition);
 
 
 G4int cpN=1;		// indice numero strato per stampare a video informazioni
@@ -477,16 +484,12 @@ G4cout << "---------------------------------------------------------------------
 
 
 // Human Phantom
-
-// II. CREATE GEOMETRY:
-    //Define phantom  sizes
-	G4double phantomXSize = 20*cm;
+    //Define phantom sizes
+	G4double phantomXSize = 30*cm;
 	G4double phantomYSize = 60*cm;
 	G4double phantomZSize = 50*cm;
-
+	//Define phantom material
 	G4Material* materialPhantom = G4NistManager::Instance()->FindOrBuildMaterial("G4_TISSUE_SOFT_ICRP");
-
-
 
     G4Box*              phantomSolid   = new G4Box("solid-Phantom",    // name
     	                                          0.5*phantomXSize,   // half x-size

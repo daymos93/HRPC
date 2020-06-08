@@ -13,4 +13,4 @@
 /run/initialize
 #
 # Visualization setting
-/control/execute /home/dayron/Geant4/MyBOX/vis.mac
+/control/execute /home/dayron/Geant4/HRPC/macro/vis.mac

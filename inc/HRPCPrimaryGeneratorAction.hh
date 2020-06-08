@@ -1,26 +1,26 @@
 
-#ifndef MYBOXPRIMARYGENERATORACTION_HH
-#define MYBOXPRIMARYGENERATORACTION_HH
+#ifndef HRPCPRIMARYGENERATORACTION_HH
+#define HRPCPRIMARYGENERATORACTION_HH
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 
 #include "globals.hh"
 
 // forward declaration
-class MyBOXDetectorConstruction;
+class HRPCDetectorConstruction;
 class G4ParticleGun;
 class G4Event;
 class G4String;
 
 
-class MyBOXPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction {
+class HRPCPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction {
 
   // Method declaration:
   public:
     
     // CTR & DTR
-	MyBOXPrimaryGeneratorAction(MyBOXDetectorConstruction* det);
-    virtual ~MyBOXPrimaryGeneratorAction();
+	HRPCPrimaryGeneratorAction(HRPCDetectorConstruction* det);
+    virtual ~HRPCPrimaryGeneratorAction();
 
     // (Pure) virtual method to generata primary events
     virtual void   GeneratePrimaries(G4Event*);
@@ -45,26 +45,13 @@ class MyBOXPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction {
     // the actual detector construction
     void            UpdatePosition();
 
-    // static access method (per accedere a stepping da altri file)
-    static MyBOXPrimaryGeneratorAction* Instance();
-
 
   // Data member declarations:
   private:
 
-    // static method (per accere da altri file)
-    static MyBOXPrimaryGeneratorAction* fgInstance;
-
-    MyBOXDetectorConstruction* fMyBOXDetector;
+    HRPCDetectorConstruction* fHRPCDetector;
 
   	G4ParticleGun*            fParticleGun; 
-
-    G4double CX;
-    G4double CY;
-    G4double CZ;
-    G4double gX;
-    G4double gY;
-    G4double gZ;
 
 };
 

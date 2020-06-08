@@ -12,8 +12,8 @@
 #include "G4RunManager.hh"
 #endif
 // Your detector construction and user action initialization
-#include "MyBOXDetectorConstruction.hh"
-#include "MyBOXActionInitialization.hh"
+#include "HRPCDetectorConstruction.hh"
+#include "HRPCActionInitialization.hh"
 // To be able to use and combine the references physics lists
 #include "G4PhysListFactory.hh"
 #include "G4ThermalNeutrons.hh"
@@ -23,7 +23,7 @@
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
 
-#include "HistoManager.hh"
+//#include "HistoManager.hh"
 #include "TROOT.h"
 
 int main(int argc, char** argv) {  
@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
     //  = 3. G4VUserActionInitialization (that contains G4VUserPrimaryGeneratorAction)
     //
     // 1. DetectorConstruction = YourDetectorConstruction <- G4VUserDetectorConstruction
-    MyBOXDetectorConstruction* detector = new MyBOXDetectorConstruction;
+    HRPCDetectorConstruction* detector = new HRPCDetectorConstruction;
     runManager->SetUserInitialization( detector );
     //
     // 2. PhysicsList = G4VModularPhysicsList <- G4VUserPhysicsList
@@ -77,7 +77,7 @@ int main(int argc, char** argv) {
     runManager->SetUserInitialization( pl );
     // 
     // Set an HistoManager
-    HistoManager*  histo = new HistoManager();
+    //HistoManager*  histo = new HistoManager();
 
 
     // 3. ActionInitialization = YourActionInitialization <- G4VUserActionInitialization 
@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
     //     - all other UserActions (Run, Event, Stepping, Tracking, Stacking) are optional !
     //     - the DetectorConstruction pointer is propagated down to the UserActions
     //       because some actions (e.g. PrimaryGenerator) needs information from the detector.
-    runManager->SetUserInitialization( new MyBOXActionInitialization( detector ) );
+    runManager->SetUserInitialization( new HRPCActionInitialization( detector ) );
 
     
     // 
@@ -119,7 +119,7 @@ int main(int argc, char** argv) {
       //ui->SessionStart();
      // G4cerr << "  == Here we are after the ui-session termination! " << G4endl;
 
-      UI->ApplyCommand("/control/execute ../init_vis.mac");
+      UI->ApplyCommand("/control/execute ../macro/init_vis.mac");
       ui->SessionStart();
 
       delete ui;
@@ -129,7 +129,7 @@ int main(int argc, char** argv) {
     // delete the Visualization Manger 
     delete visManager;
     
-    delete histo;
+    //delete histo;
     //
     // At the end delete the RunManager
     delete runManager;

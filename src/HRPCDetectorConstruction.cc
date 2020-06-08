@@ -1,4 +1,5 @@
-#include "MyBOXDetectorConstruction.hh"
+#include "HRPCDetectorConstruction.hh"
+#include "HRPCDetectorMessenger.hh"
 
 // for geometry definitions
 #include "G4Box.hh"
@@ -50,29 +51,38 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 // CTR
-MyBOXDetectorConstruction::MyBOXDetectorConstruction()
+HRPCDetectorConstruction::HRPCDetectorConstruction()
 :	G4VUserDetectorConstruction(),
 	//fCheckOverlaps(true)
-	minorBase(0), majorBase(0), Height(0)			// dimensioni trapezio camera (area effettiva)
+	minorBase(0), majorBase(0), Height(0),ftrdRPosition(0),ftrdThetaPosition(0),fgasGapThickness(0)			// dimensioni trapezio camera (area effettiva)
 
-{  	majorBase=584.1*mm;				//definizione valori dimensioni trapezio camera
-   	minorBase=866.3*mm;
-   	Height  =1613.0*mm;
-		
+{  	majorBase	=	584.1*mm;				//definizione valori dimensioni trapezio camera
+   	minorBase	=	866.3*mm;
+   	Height	=	1613.0*mm;
+
+   	ftrdRPosition	=	1000.0*mm;			//distancia detector to origin
+
+   	ftrdThetaPosition	=	90.0;			//theta position of RPC in grads
+
+   	fgasGapThickness = 1.4*mm;
+
+   	// create detector messenger object (for your own detector UI commands)
+   	fDetMessenger    = new HRPCDetectorMessenger(this);
 }
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 // DTR
-MyBOXDetectorConstruction::~MyBOXDetectorConstruction()
-{ }
+HRPCDetectorConstruction::~HRPCDetectorConstruction(){
+	delete fDetMessenger;
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4VPhysicalVolume* MyBOXDetectorConstruction::Construct()
+G4VPhysicalVolume* HRPCDetectorConstruction::Construct()
 { 
 
 //+++++++++++++++++++++++++++++++++++ RIVELATORE KODEL ++++++++++++++++++++++++++++++++++++++
@@ -143,8 +153,6 @@ G4VPhysicalVolume* MyBOXDetectorConstruction::Construct()
    paper->AddElement(elO, natoms=5);
 
 
-
-
    //PET
 
    density = 1.37*g/cm3;
@@ -154,13 +162,11 @@ G4VPhysicalVolume* MyBOXDetectorConstruction::Construct()
    PET->AddElement(elO, natoms=4);
 
 
-
    //High Pressure Laminate HPL   
    G4Material* HPL = new G4Material(name = "HPL", density= 1.4*g/cm3, numel=3);
    HPL->AddMaterial(G4NistManager::Instance()->FindOrBuildMaterial("G4_H"), fractionMass = 5.74*perCent);
    HPL->AddMaterial(G4NistManager::Instance()->FindOrBuildMaterial("G4_C"), fractionMass = 77.46*perCent);
    HPL->AddMaterial(G4NistManager::Instance()->FindOrBuildMaterial("G4_O"), fractionMass = 16.8*perCent);
-
 
 
 
@@ -246,9 +252,9 @@ G4VPhysicalVolume* MyBOXDetectorConstruction::Construct()
 
 // Rotation Matrix for layers   (ruota elementi disegnati)
 G4RotationMatrix* rotationPlacement = new G4RotationMatrix() ;
-rotationPlacement->rotateY(M_PI / 2.0) ;		//ruota asse y, per avere x larghezza e z spessore
-rotationPlacement->rotateX(M_PI / 2.0) ;		//rotazione asse x, per avere asse trapezio verticale
-
+rotationPlacement->rotateX((ftrdThetaPosition+90)*M_PI / 180) ;		//rotazione asse x, per avere asse trapezio verticale
+rotationPlacement->rotateY(0*M_PI / 180) ;		//ruota asse y, per avere x larghezza e z spessore
+rotationPlacement->rotateZ(90*M_PI / 180) ;
 
 
 
@@ -348,13 +354,13 @@ rotationPlacement->rotateX(M_PI / 2.0) ;		//rotazione asse x, per avere asse tra
 		1.0*mm,								//layer paper
 
 		0.38*mm, 0.18*mm, 0.18*mm, 0.15*mm, 0.001*mm, 1.35*mm,	      	//"Copper1_1", "PET1_1","PET1_2", "EVA1_1","graphite1_1","HPL1_1"		
-		1.4*mm,								//GASGAP 1
+		fgasGapThickness,								//GASGAP 1
 		1.35*mm, 0.001*mm, 0.15*mm, 0.18*mm, 0.18*mm,0.38*mm,		//"HPL1_2","graphite1_2", "EVA1_2", "PET1_3","PET1_4","Copper1_2"		
 
 		0.2*mm, 0.17*mm, 0.2*mm,					//"PETstrip1","CuStrip", "PETstrip2"					
 		
 		0.38*mm, 0.18*mm, 0.18*mm, 0.15*mm, 0.001*mm, 1.35*mm,		//"Copper2_1", "PET2_1","PET2_2", "EVA2_1","graphite2_1","HPL2_1"		
-		1.4*mm,								//GASGAP 2
+		fgasGapThickness,								//GASGAP 2
 		1.35*mm, 0.001*mm, 0.15*mm, 0.18*mm, 0.18*mm,0.38*mm,		//"HPL2_2","graphite2_2", "EVA2_2", "PET2_3","PET2_4","Copper2_2"		
 		
 		0.188*mm,							//pet insulation BOT
@@ -382,7 +388,8 @@ rotationPlacement->rotateX(M_PI / 2.0) ;		//rotazione asse x, per avere asse tra
 
 		for(G4int lyr=0;lyr<Nstrati;lyr++){				//loop per assegnare a ogni nome strato il proprio volume logico e forma e spessore
 
-			G4Trd* strato= new G4Trd(NomeStrati[lyr],spessoreStrati[lyr]/2, spessoreStrati[lyr]/2,majorBase/2, minorBase/2, Height/2); //per invertire posizione base maggiore e minore basta invertirli nell'inserimento
+			G4Trd* strato= new G4Trd(NomeStrati[lyr],spessoreStrati[lyr]/2, spessoreStrati[lyr]/2,minorBase/2, minorBase/2, Height/2); //per invertire posizione base maggiore e minore basta invertirli nell'inserimento
+			//G4Box* strato= new G4Box(NomeStrati[lyr],spessoreStrati[lyr]/2, minorBase/2,Height/2);
 			G4LogicalVolume* logicStrato = new G4LogicalVolume(strato, MatStrati[lyr], NomeStratiLog[lyr]) ;
 
 
@@ -434,13 +441,15 @@ rotationPlacement->rotateX(M_PI / 2.0) ;		//rotazione asse x, per avere asse tra
 
 G4cout << "----------------------RE4-2 KODEL ------------------------------------" << G4endl ;
 
-G4double ZTranslation= 0;	//posizione di partenza su asse z da dove posizionare primo layer 
+G4double ZTranslation= ftrdRPosition*cos(ftrdThetaPosition*M_PI/180);	//posizione di partenza su asse z da dove posizionare primo layer
+G4double YTranslation= ftrdRPosition*sin(ftrdThetaPosition*M_PI/180);
+
 
 G4int cpN=1;		// indice numero strato per stampare a video informazioni
 
 //
 
-     for(size_t i=0 ; i<trdCollection.size() ; i++) {   		// i counts as the copyNo per loop
+    for(size_t i=0 ; i<trdCollection.size() ; i++) {   		// i counts as the copyNo per loop
 
 	ZTranslation += trdCollection.at(i)->GetXHalfLength1() ;//trasla di mezzo spessore(volume posizionato metà prima e metà dopo)(usa il segno - xchè upstream z negativa)
 	G4double thickness=trdCollection.at(i)->GetXHalfLength1()*2 ;		//prende spessore del volume per stamparlo a video
@@ -450,9 +459,9 @@ G4int cpN=1;		// indice numero strato per stampare a video informazioni
       fGunXPosition         = -0.25*( worldSizeX + thickness ); //Xgunposition
 
 
-       G4VPhysicalVolume* trapezoidalPhysic = new G4PVPlacement(		//crea volume fisico					
+      G4VPhysicalVolume* trapezoidalPhysic = new G4PVPlacement(		//crea volume fisico
 	  rotationPlacement,							//rotazione
-	  G4ThreeVector(0,0,ZTranslation),					//vettore posizione, varia solo posizione in Z (distanza sorgente)
+	  G4ThreeVector(0,YTranslation,ZTranslation),					//vettore posizione, varia solo posizione in Z (distanza sorgente)
 	  trdLogCollection.at(i),						//nome del volume logico
 	  trdCollection.at(i)->GetName(),					//nome volume fisico
 	  worldLog,								//volume madre in cui posizionare
@@ -465,6 +474,34 @@ G4int cpN=1;		// indice numero strato per stampare a video informazioni
        }
 
 G4cout << "-------------------------------------------------------------------------" << G4endl ;
+
+
+// Human Phantom
+
+// II. CREATE GEOMETRY:
+    //Define phantom  sizes
+	G4double phantomXSize = 20*cm;
+	G4double phantomYSize = 60*cm;
+	G4double phantomZSize = 50*cm;
+
+	G4Material* materialPhantom = G4NistManager::Instance()->FindOrBuildMaterial("G4_TISSUE_SOFT_ICRP");
+
+
+
+    G4Box*              phantomSolid   = new G4Box("solid-Phantom",    // name
+    	                                          0.5*phantomXSize,   // half x-size
+    	                                          0.5*phantomYSize,  // half y-size
+    	                                          0.5*phantomZSize); // half z-size
+    G4LogicalVolume*    phantomLogical = new G4LogicalVolume(phantomSolid,    // solid
+    													materialPhantom,  // material
+                                                           "logic-Phantom"); // name
+    G4VPhysicalVolume*  phantomPhyscal = new G4PVPlacement(nullptr,                 // (no) rotation
+                                                          G4ThreeVector(0.,0.,0.), // translation
+														  phantomLogical,           // its logical volume
+                                                          "Phantom",                // its name
+                                                          worldLog,            // its mother volume
+                                                          false,                   // not used
+                                                          0);
 
 
 

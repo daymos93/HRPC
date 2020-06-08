@@ -1,22 +1,22 @@
 
-#ifndef MYBOXACTIONINITIALIZATION_HH
-#define MYBOXACTIONINITIALIZATION_HH
+#ifndef HRPCACTIONINITIALIZATION_HH
+#define HRPCACTIONINITIALIZATION_HH
 
 #include "G4VUserActionInitialization.hh"
 
 
 // forward declarations
-class MyBOXDetectorConstruction;
+class HRPCDetectorConstruction;
 
 
-class MyBOXActionInitialization : public G4VUserActionInitialization {
+class HRPCActionInitialization : public G4VUserActionInitialization {
 
   // Method declaration:
   public:
     
     // CTR & DTR (you will need to talk to your detector to find out the GUN pos.)
-	MyBOXActionInitialization(MyBOXDetectorConstruction* det);
-    virtual ~MyBOXActionInitialization();
+	HRPCActionInitialization(HRPCDetectorConstruction* det);
+    virtual ~HRPCActionInitialization();
 
     // (Pure) Virtual method to be implemented by the user to instantiate 
     // User Action class objects
@@ -32,7 +32,7 @@ class MyBOXActionInitialization : public G4VUserActionInitialization {
   // Data member declarations:
   private:
 
-    MyBOXDetectorConstruction* fMyBOXDetector;
+    HRPCDetectorConstruction* fHRPCDetector;
 };
 
 #endif

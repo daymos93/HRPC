@@ -12,6 +12,13 @@
 # ------------------------------------------------------------------------------
 # Use this open statement to create an OpenGL view:
 /vis/open OGL
+#/vis/open DAWNFILE
+
+# ------------------------------------------------------------------------------
+# Disable auto refresh and quieten vis messages whilst scene and
+# trajectories are established:
+#/vis/viewer/set/autoRefresh false
+#/vis/verbose errors
 
 # ------------------------------------------------------------------------------
 # Draw the geometry 

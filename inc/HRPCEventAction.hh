@@ -1,6 +1,6 @@
 
-#ifndef MYBOXEVENTACTION_HH
-#define MYBOXEVENTACTION_HH
+#ifndef HRPCEVENTACTION_HH
+#define HRPCEVENTACTION_HH
 
 #include "G4UserEventAction.hh"
 
@@ -8,21 +8,26 @@
 
 
 
-class MyBOXEventAction : public G4UserEventAction {
+class HRPCEventAction : public G4UserEventAction {
 
   // Method declaration:
   public:
     
     // CTR: 
-	MyBOXEventAction();
-    virtual ~MyBOXEventAction();
+	HRPCEventAction();
+    virtual ~HRPCEventAction();
 
     // static access method  (per accere da altri file)
-    static MyBOXEventAction* Instance();
+    static HRPCEventAction* Instance();
 
     // Two virtual method called at the beginning and at the end of each event 
     virtual void BeginOfEventAction(const G4Event* anEvent);
     virtual void EndOfEventAction(const G4Event* anEvent);
+
+    //void AddGap1(G4double de, G4double dl) {fEnergyGap1 += de; fTrackLGap1 += dl;};
+    //void AddGap2(G4double de, G4double dl) {fEnergyGap2 += de; fTrackLGap2 += dl;};
+
+
 
     // funzioni per prendere valori da event
 
@@ -37,9 +42,13 @@ class MyBOXEventAction : public G4UserEventAction {
   // Data member declarations:
   private:
     
-    static MyBOXEventAction* fgInstance;  // per accere da altri file
+    static HRPCEventAction* fgInstance;  // per accere da altri file
 
     G4int     fPrintModulo;
+
+    //G4double  fEnergyGap1, fEnergyGap2;
+    //G4double  fTrackLGap1, fTrackLGap2;
+
 
     G4int     n_incidenti;				// contatore particelle incidenti bot + top
     G4int     n_incidenti_top;			// contatore particelle incidenti top

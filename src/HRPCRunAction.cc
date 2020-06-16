@@ -1,16 +1,13 @@
 
-#include "MyBOXRunAction.hh"
+#include "HRPCRunAction.hh"
 
-#include "MyBOXPrimaryGeneratorAction.hh"
-#include "MyBOXRun.hh"
+#include "HRPCPrimaryGeneratorAction.hh"
+#include "HRPCRun.hh"
 #include "G4Run.hh"
 
 #include "Randomize.hh"
-#include "MyBOXDetectorConstruction.hh"
+#include "HRPCDetectorConstruction.hh"
 
-#include "HistoManager.hh"
-
-//root staff
 #include "g4root.hh"
 #include <TROOT.h>
 #include <TFile.h>
@@ -21,15 +18,16 @@
 #include "TBranch.h"
 #include "TTree.h"
 #include <TNtuple.h>
+#include "HistoManager.hh"
 
 ////////////////// metodi per accere da altri file ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-MyBOXRunAction* MyBOXRunAction::fgInstance = 0;
+HRPCRunAction* HRPCRunAction::fgInstance = 0;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-MyBOXRunAction* MyBOXRunAction::Instance()
+HRPCRunAction* HRPCRunAction::Instance()
 {
 // Static acces function via G4RunManager
 
@@ -39,28 +37,28 @@ MyBOXRunAction* MyBOXRunAction::Instance()
 
 
 
-MyBOXRunAction::MyBOXRunAction(MyBOXDetectorConstruction* det, MyBOXPrimaryGeneratorAction* prim)
+HRPCRunAction::HRPCRunAction(HRPCDetectorConstruction* det, HRPCPrimaryGeneratorAction* prim)
 :   G4UserRunAction(),
-    fMyBOXDetector(det),
-    fMyBOXPrimary(prim),
-    fMyBOXRun(nullptr) {
+    fHRPCDetector(det),
+    fHRPCPrimary(prim),
+    fHRPCRun(nullptr) {
 
 	fgInstance = this;   // metodo per accedere da altri file
 
 }
 
-MyBOXRunAction::~MyBOXRunAction() {
+HRPCRunAction::~HRPCRunAction() {
 	fgInstance = 0;   // metodo per accedere da altri file
 }
 
 
-G4Run* MyBOXRunAction::GenerateRun() {
-	fMyBOXRun = new MyBOXRun(fMyBOXDetector, fMyBOXPrimary);
-	return fMyBOXRun;
+G4Run* HRPCRunAction::GenerateRun() {
+	fHRPCRun = new HRPCRun(fHRPCDetector, fHRPCPrimary);
+	return fHRPCRun;
 }
 
 
-void MyBOXRunAction::BeginOfRunAction(const G4Run* /*run*/) {
+void HRPCRunAction::BeginOfRunAction(const G4Run* /*run*/) {
     // Show Rndm status (only for the Master thread)
     //if ( IsMaster() ) G4Random::showEngineStatus();
     //
@@ -68,19 +66,22 @@ void MyBOXRunAction::BeginOfRunAction(const G4Run* /*run*/) {
     // thickness between construction of objects and start of the run.  
     // note: primary generator is set in the CTR only for the Worker threads in the 
     //       ActionInitialization (left null for Master in the BuildForMaster())
-    if ( fMyBOXPrimary ) {
-       fMyBOXPrimary->UpdatePosition();
+    if ( fHRPCPrimary ) {
+      fHRPCPrimary->UpdatePosition();
     }
 
-    HistoManager::Instance()->book();
+	HistoManager::Instance()->book();
 
 }
 
 
-void MyBOXRunAction::EndOfRunAction(const G4Run*) {
+
+
+
+void HRPCRunAction::EndOfRunAction(const G4Run* run) {
     // Print Run summary (only for the Master thread)
     if ( IsMaster() ) { 
-    	fMyBOXRun->EndOfRunSummary();
+    	fHRPCRun->EndOfRunSummary();
     }
     //
     // Show Rndm status (only for the Master thread)

@@ -45,9 +45,15 @@ class HRPCPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction {
     // the actual detector construction
     void            UpdatePosition();
 
+    // static access method (per accedere a stepping da altri file)
+    static HRPCPrimaryGeneratorAction* Instance();
+
 
   // Data member declarations:
   private:
+
+    // static method (per accere da altri file)
+    static HRPCPrimaryGeneratorAction* fgInstance;
 
     HRPCDetectorConstruction* fHRPCDetector;
 

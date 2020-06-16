@@ -1,9 +1,9 @@
 
-#include "MyBOXEventAction.hh"
+#include "HRPCEventAction.hh"
 
 #include "G4Step.hh"
-#include "MyBOXDetectorConstruction.hh"
-#include "MyBOXSteppingAction.hh"
+#include "HRPCDetectorConstruction.hh"
+#include "HRPCSteppingAction.hh"
 #include "G4RunManager.hh"
 
 #include "HistoManager.hh"
@@ -13,19 +13,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-MyBOXSteppingAction* MyBOXSteppingAction::fgInstance = 0;
+HRPCSteppingAction* HRPCSteppingAction::fgInstance = 0;
 
-MyBOXSteppingAction* MyBOXSteppingAction::Instance()
+HRPCSteppingAction* HRPCSteppingAction::Instance()
 {
   // Static acces function via G4RunManager
   return fgInstance;
 }
 
 
-MyBOXSteppingAction::MyBOXSteppingAction(MyBOXDetectorConstruction* det, MyBOXEventAction* evtAction)
+HRPCSteppingAction::HRPCSteppingAction(HRPCDetectorConstruction* det, HRPCEventAction* evtAction)
 :   G4UserSteppingAction(), 
-    fMyBOXDetector(det),
-    fMyBOXEventAction(evtAction),
+    fHRPCDetector(det),
+    fHRPCEventAction(evtAction),
 
 	// p incidenti
 	 p_incidente(0),
@@ -148,7 +148,7 @@ MyBOXSteppingAction::MyBOXSteppingAction(MyBOXDetectorConstruction* det, MyBOXEv
 }
 
 
-MyBOXSteppingAction::~MyBOXSteppingAction() {
+HRPCSteppingAction::~HRPCSteppingAction() {
 	//metodo per accedere da altri file
 	 fgInstance = 0;
 }
@@ -158,9 +158,9 @@ MyBOXSteppingAction::~MyBOXSteppingAction() {
 // Score only if the step was done in the Target:
 //  - collect energy deposit for the mean (per-event) energy deposit computation
 //  - same for the charged particle track length
-void MyBOXSteppingAction::UserSteppingAction(const G4Step* step) {
+void HRPCSteppingAction::UserSteppingAction(const G4Step* step) {
 
-	MyBOXSteppingAction::Instance()->StepReset();		// a inizio di ogni step resetta le variabili step
+	HRPCSteppingAction::Instance()->StepReset();		// a inizio di ogni step resetta le variabili step
 
 	// DECISIONE SU QUALI PARAMETRI PRENDERE
 	G4double particleCharge= step->GetTrack()->GetParticleDefinition()->GetPDGCharge();		// carica particella
@@ -186,7 +186,7 @@ void MyBOXSteppingAction::UserSteppingAction(const G4Step* step) {
 	  	G4double x_TOT = step->GetTrack()->GetPosition().x() ;
 	  	G4double y_TOT = step->GetTrack()->GetPosition().y() ;
 
-		if (PDG==2212) {
+		if (PDG==2112) {
 					HistoManager::Instance()-> Fill_incident_TOT (p_incidente,PDG_TOT, ID_TOT, PID_TOT,Ek_TOT,x_TOT,y_TOT,z_TOT );  //passa le variabili a ttree TOT
 		}
 	}
@@ -204,7 +204,7 @@ void MyBOXSteppingAction::UserSteppingAction(const G4Step* step) {
 	  	G4double x_TOP = step->GetTrack()->GetPosition().x() ;
 	  	G4double y_TOP = step->GetTrack()->GetPosition().y() ;
 
-		if (PDG==2212) {
+		if (PDG==2112) {
 				HistoManager::Instance()-> Fill_incident_TOP (p_incidente_top,PDG_TOP, ID_TOP, PID_TOP,Ek_TOP,x_TOP,y_TOP,z_TOP );  //passa le variabili a ttree TOP
 		}
 	}
@@ -222,7 +222,7 @@ void MyBOXSteppingAction::UserSteppingAction(const G4Step* step) {
 	  	G4double x_BOT = step->GetTrack()->GetPosition().x();
 	  	G4double y_BOT = step->GetTrack()->GetPosition().y();
 
-		if (PDG==2212) {
+		if (PDG==2112) {
 					HistoManager::Instance()-> Fill_incident_BOT (p_incidente_bot,PDG_BOT, ID_BOT, PID_BOT,Ek_BOT,x_BOT,y_BOT,z_BOT );  //passa le variabili a ttree BOT
 		}
 
@@ -350,6 +350,7 @@ void MyBOXSteppingAction::UserSteppingAction(const G4Step* step) {
 	  	}
 
 
+
 	  //energia SOLO dei fotoni incidenti che poi producono segnale (per sapere energia dei fotoni che producono segnale)
 
 
@@ -416,7 +417,8 @@ void MyBOXSteppingAction::UserSteppingAction(const G4Step* step) {
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 // definizione reset che viene chiamata all'inizio di ogni evento, nel file eventaction
 
-void MyBOXSteppingAction::Reset()
+
+void HRPCSteppingAction::Reset()
 {
 //p incidenti
   p_incidente = 0.;
@@ -519,4 +521,3 @@ void MyBOXSteppingAction::Reset()
 Ek_incident_signal=0;
 
 }
-

@@ -2,9 +2,9 @@
 #define HISTOMANAGER_HH
 
 #include "globals.hh"
-#include "MyBOXEventAction.hh"
-#include "MyBOXRunAction.hh"
-#include "MyBOXSteppingAction.hh"
+#include "HRPCEventAction.hh"
+#include "HRPCRunAction.hh"
+#include "HRPCSteppingAction.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

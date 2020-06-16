@@ -153,9 +153,33 @@ CMakeFiles/HRPC.dir/src/HRPCDetectorMessenger.cc.o.provides: CMakeFiles/HRPC.dir
 CMakeFiles/HRPC.dir/src/HRPCDetectorMessenger.cc.o.provides.build: CMakeFiles/HRPC.dir/src/HRPCDetectorMessenger.cc.o
 
 
+CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o: CMakeFiles/HRPC.dir/flags.make
+CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o: ../src/HRPCEventAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o -c /home/dayron/Geant4/HRPC/src/HRPCEventAction.cc
+
+CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dayron/Geant4/HRPC/src/HRPCEventAction.cc > CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.i
+
+CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dayron/Geant4/HRPC/src/HRPCEventAction.cc -o CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.s
+
+CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o.requires:
+
+.PHONY : CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o.requires
+
+CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o.provides: CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o.provides.build
+.PHONY : CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o.provides
+
+CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o.provides.build: CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o
+
+
 CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o: CMakeFiles/HRPC.dir/flags.make
 CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o: ../src/HRPCPrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o -c /home/dayron/Geant4/HRPC/src/HRPCPrimaryGeneratorAction.cc
 
 CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.i: cmake_force
@@ -177,13 +201,114 @@ CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o.provides: CMakeFiles/HRP
 CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o.provides.build: CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o
 
 
+CMakeFiles/HRPC.dir/src/HRPCRun.cc.o: CMakeFiles/HRPC.dir/flags.make
+CMakeFiles/HRPC.dir/src/HRPCRun.cc.o: ../src/HRPCRun.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HRPC.dir/src/HRPCRun.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HRPC.dir/src/HRPCRun.cc.o -c /home/dayron/Geant4/HRPC/src/HRPCRun.cc
+
+CMakeFiles/HRPC.dir/src/HRPCRun.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HRPC.dir/src/HRPCRun.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dayron/Geant4/HRPC/src/HRPCRun.cc > CMakeFiles/HRPC.dir/src/HRPCRun.cc.i
+
+CMakeFiles/HRPC.dir/src/HRPCRun.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HRPC.dir/src/HRPCRun.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dayron/Geant4/HRPC/src/HRPCRun.cc -o CMakeFiles/HRPC.dir/src/HRPCRun.cc.s
+
+CMakeFiles/HRPC.dir/src/HRPCRun.cc.o.requires:
+
+.PHONY : CMakeFiles/HRPC.dir/src/HRPCRun.cc.o.requires
+
+CMakeFiles/HRPC.dir/src/HRPCRun.cc.o.provides: CMakeFiles/HRPC.dir/src/HRPCRun.cc.o.requires
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCRun.cc.o.provides.build
+.PHONY : CMakeFiles/HRPC.dir/src/HRPCRun.cc.o.provides
+
+CMakeFiles/HRPC.dir/src/HRPCRun.cc.o.provides.build: CMakeFiles/HRPC.dir/src/HRPCRun.cc.o
+
+
+CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o: CMakeFiles/HRPC.dir/flags.make
+CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o: ../src/HRPCRunAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o -c /home/dayron/Geant4/HRPC/src/HRPCRunAction.cc
+
+CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dayron/Geant4/HRPC/src/HRPCRunAction.cc > CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.i
+
+CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dayron/Geant4/HRPC/src/HRPCRunAction.cc -o CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.s
+
+CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o.requires:
+
+.PHONY : CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o.requires
+
+CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o.provides: CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o.provides.build
+.PHONY : CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o.provides
+
+CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o.provides.build: CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o
+
+
+CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o: CMakeFiles/HRPC.dir/flags.make
+CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o: ../src/HRPCSteppingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o -c /home/dayron/Geant4/HRPC/src/HRPCSteppingAction.cc
+
+CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dayron/Geant4/HRPC/src/HRPCSteppingAction.cc > CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.i
+
+CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dayron/Geant4/HRPC/src/HRPCSteppingAction.cc -o CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.s
+
+CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o.requires:
+
+.PHONY : CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o.requires
+
+CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o.provides: CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o.provides.build
+.PHONY : CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o.provides
+
+CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o.provides.build: CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o
+
+
+CMakeFiles/HRPC.dir/src/HistoManager.cc.o: CMakeFiles/HRPC.dir/flags.make
+CMakeFiles/HRPC.dir/src/HistoManager.cc.o: ../src/HistoManager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/HRPC.dir/src/HistoManager.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HRPC.dir/src/HistoManager.cc.o -c /home/dayron/Geant4/HRPC/src/HistoManager.cc
+
+CMakeFiles/HRPC.dir/src/HistoManager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HRPC.dir/src/HistoManager.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dayron/Geant4/HRPC/src/HistoManager.cc > CMakeFiles/HRPC.dir/src/HistoManager.cc.i
+
+CMakeFiles/HRPC.dir/src/HistoManager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HRPC.dir/src/HistoManager.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dayron/Geant4/HRPC/src/HistoManager.cc -o CMakeFiles/HRPC.dir/src/HistoManager.cc.s
+
+CMakeFiles/HRPC.dir/src/HistoManager.cc.o.requires:
+
+.PHONY : CMakeFiles/HRPC.dir/src/HistoManager.cc.o.requires
+
+CMakeFiles/HRPC.dir/src/HistoManager.cc.o.provides: CMakeFiles/HRPC.dir/src/HistoManager.cc.o.requires
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HistoManager.cc.o.provides.build
+.PHONY : CMakeFiles/HRPC.dir/src/HistoManager.cc.o.provides
+
+CMakeFiles/HRPC.dir/src/HistoManager.cc.o.provides.build: CMakeFiles/HRPC.dir/src/HistoManager.cc.o
+
+
 # Object files for target HRPC
 HRPC_OBJECTS = \
 "CMakeFiles/HRPC.dir/HRPC.cc.o" \
 "CMakeFiles/HRPC.dir/src/HRPCActionInitialization.cc.o" \
 "CMakeFiles/HRPC.dir/src/HRPCDetectorConstruction.cc.o" \
 "CMakeFiles/HRPC.dir/src/HRPCDetectorMessenger.cc.o" \
-"CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o"
+"CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o" \
+"CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o" \
+"CMakeFiles/HRPC.dir/src/HRPCRun.cc.o" \
+"CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o" \
+"CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o" \
+"CMakeFiles/HRPC.dir/src/HistoManager.cc.o"
 
 # External object files for target HRPC
 HRPC_EXTERNAL_OBJECTS =
@@ -192,7 +317,12 @@ HRPC: CMakeFiles/HRPC.dir/HRPC.cc.o
 HRPC: CMakeFiles/HRPC.dir/src/HRPCActionInitialization.cc.o
 HRPC: CMakeFiles/HRPC.dir/src/HRPCDetectorConstruction.cc.o
 HRPC: CMakeFiles/HRPC.dir/src/HRPCDetectorMessenger.cc.o
+HRPC: CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o
 HRPC: CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o
+HRPC: CMakeFiles/HRPC.dir/src/HRPCRun.cc.o
+HRPC: CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o
+HRPC: CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o
+HRPC: CMakeFiles/HRPC.dir/src/HistoManager.cc.o
 HRPC: CMakeFiles/HRPC.dir/build.make
 HRPC: /home/dayron/Applications/Geant4/geant4-install/lib/libG4Tree.so
 HRPC: /home/dayron/Applications/Geant4/geant4-install/lib/libG4GMocren.so
@@ -259,7 +389,7 @@ HRPC: /home/dayron/Applications/Geant4/geant4-install/lib/libG4intercoms.so
 HRPC: /home/dayron/Applications/Geant4/geant4-install/lib/libG4global.so
 HRPC: /home/dayron/Applications/CLHEP/CLHEP-install/lib/libCLHEP-2.4.1.3.so
 HRPC: CMakeFiles/HRPC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable HRPC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dayron/Geant4/HRPC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable HRPC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/HRPC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -271,7 +401,12 @@ CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/HRPC.cc.o.requires
 CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HRPCActionInitialization.cc.o.requires
 CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HRPCDetectorConstruction.cc.o.requires
 CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HRPCDetectorMessenger.cc.o.requires
+CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o.requires
 CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.o.requires
+CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HRPCRun.cc.o.requires
+CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o.requires
+CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o.requires
+CMakeFiles/HRPC.dir/requires: CMakeFiles/HRPC.dir/src/HistoManager.cc.o.requires
 
 .PHONY : CMakeFiles/HRPC.dir/requires
 

@@ -231,6 +231,33 @@ src/HRPCDetectorMessenger.cc.s:
 	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCDetectorMessenger.cc.s
 .PHONY : src/HRPCDetectorMessenger.cc.s
 
+src/HRPCEventAction.o: src/HRPCEventAction.cc.o
+
+.PHONY : src/HRPCEventAction.o
+
+# target to build an object file
+src/HRPCEventAction.cc.o:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.o
+.PHONY : src/HRPCEventAction.cc.o
+
+src/HRPCEventAction.i: src/HRPCEventAction.cc.i
+
+.PHONY : src/HRPCEventAction.i
+
+# target to preprocess a source file
+src/HRPCEventAction.cc.i:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.i
+.PHONY : src/HRPCEventAction.cc.i
+
+src/HRPCEventAction.s: src/HRPCEventAction.cc.s
+
+.PHONY : src/HRPCEventAction.s
+
+# target to generate assembly for a file
+src/HRPCEventAction.cc.s:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCEventAction.cc.s
+.PHONY : src/HRPCEventAction.cc.s
+
 src/HRPCPrimaryGeneratorAction.o: src/HRPCPrimaryGeneratorAction.cc.o
 
 .PHONY : src/HRPCPrimaryGeneratorAction.o
@@ -258,6 +285,114 @@ src/HRPCPrimaryGeneratorAction.cc.s:
 	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCPrimaryGeneratorAction.cc.s
 .PHONY : src/HRPCPrimaryGeneratorAction.cc.s
 
+src/HRPCRun.o: src/HRPCRun.cc.o
+
+.PHONY : src/HRPCRun.o
+
+# target to build an object file
+src/HRPCRun.cc.o:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCRun.cc.o
+.PHONY : src/HRPCRun.cc.o
+
+src/HRPCRun.i: src/HRPCRun.cc.i
+
+.PHONY : src/HRPCRun.i
+
+# target to preprocess a source file
+src/HRPCRun.cc.i:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCRun.cc.i
+.PHONY : src/HRPCRun.cc.i
+
+src/HRPCRun.s: src/HRPCRun.cc.s
+
+.PHONY : src/HRPCRun.s
+
+# target to generate assembly for a file
+src/HRPCRun.cc.s:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCRun.cc.s
+.PHONY : src/HRPCRun.cc.s
+
+src/HRPCRunAction.o: src/HRPCRunAction.cc.o
+
+.PHONY : src/HRPCRunAction.o
+
+# target to build an object file
+src/HRPCRunAction.cc.o:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.o
+.PHONY : src/HRPCRunAction.cc.o
+
+src/HRPCRunAction.i: src/HRPCRunAction.cc.i
+
+.PHONY : src/HRPCRunAction.i
+
+# target to preprocess a source file
+src/HRPCRunAction.cc.i:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.i
+.PHONY : src/HRPCRunAction.cc.i
+
+src/HRPCRunAction.s: src/HRPCRunAction.cc.s
+
+.PHONY : src/HRPCRunAction.s
+
+# target to generate assembly for a file
+src/HRPCRunAction.cc.s:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCRunAction.cc.s
+.PHONY : src/HRPCRunAction.cc.s
+
+src/HRPCSteppingAction.o: src/HRPCSteppingAction.cc.o
+
+.PHONY : src/HRPCSteppingAction.o
+
+# target to build an object file
+src/HRPCSteppingAction.cc.o:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.o
+.PHONY : src/HRPCSteppingAction.cc.o
+
+src/HRPCSteppingAction.i: src/HRPCSteppingAction.cc.i
+
+.PHONY : src/HRPCSteppingAction.i
+
+# target to preprocess a source file
+src/HRPCSteppingAction.cc.i:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.i
+.PHONY : src/HRPCSteppingAction.cc.i
+
+src/HRPCSteppingAction.s: src/HRPCSteppingAction.cc.s
+
+.PHONY : src/HRPCSteppingAction.s
+
+# target to generate assembly for a file
+src/HRPCSteppingAction.cc.s:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HRPCSteppingAction.cc.s
+.PHONY : src/HRPCSteppingAction.cc.s
+
+src/HistoManager.o: src/HistoManager.cc.o
+
+.PHONY : src/HistoManager.o
+
+# target to build an object file
+src/HistoManager.cc.o:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HistoManager.cc.o
+.PHONY : src/HistoManager.cc.o
+
+src/HistoManager.i: src/HistoManager.cc.i
+
+.PHONY : src/HistoManager.i
+
+# target to preprocess a source file
+src/HistoManager.cc.i:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HistoManager.cc.i
+.PHONY : src/HistoManager.cc.i
+
+src/HistoManager.s: src/HistoManager.cc.s
+
+.PHONY : src/HistoManager.s
+
+# target to generate assembly for a file
+src/HistoManager.cc.s:
+	$(MAKE) -f CMakeFiles/HRPC.dir/build.make CMakeFiles/HRPC.dir/src/HistoManager.cc.s
+.PHONY : src/HistoManager.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -279,9 +414,24 @@ help:
 	@echo "... src/HRPCDetectorMessenger.o"
 	@echo "... src/HRPCDetectorMessenger.i"
 	@echo "... src/HRPCDetectorMessenger.s"
+	@echo "... src/HRPCEventAction.o"
+	@echo "... src/HRPCEventAction.i"
+	@echo "... src/HRPCEventAction.s"
 	@echo "... src/HRPCPrimaryGeneratorAction.o"
 	@echo "... src/HRPCPrimaryGeneratorAction.i"
 	@echo "... src/HRPCPrimaryGeneratorAction.s"
+	@echo "... src/HRPCRun.o"
+	@echo "... src/HRPCRun.i"
+	@echo "... src/HRPCRun.s"
+	@echo "... src/HRPCRunAction.o"
+	@echo "... src/HRPCRunAction.i"
+	@echo "... src/HRPCRunAction.s"
+	@echo "... src/HRPCSteppingAction.o"
+	@echo "... src/HRPCSteppingAction.i"
+	@echo "... src/HRPCSteppingAction.s"
+	@echo "... src/HistoManager.o"
+	@echo "... src/HistoManager.i"
+	@echo "... src/HistoManager.s"
 .PHONY : help
 
 

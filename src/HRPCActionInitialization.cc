@@ -1,11 +1,10 @@
-
 #include "HRPCActionInitialization.hh"
 #include "HRPCDetectorConstruction.hh"
 #include "HRPCPrimaryGeneratorAction.hh"
 
-//#include "HRPCRunAction.hh"
-//#include "HRPCEventAction.hh"
-//#include "HRPCSteppingAction.hh"
+#include "HRPCRunAction.hh"
+#include "HRPCEventAction.hh"
+#include "HRPCSteppingAction.hh"
 
 
 
@@ -31,7 +30,7 @@ void HRPCActionInitialization::BuildForMaster() const {
 	// object but not for the Worker RunAction objects)
 	//
 	// the primary-generator not used in the master RunAction only for the workers
-    //SetUserAction(new HRPCRunAction(fHRPCDetector));
+    SetUserAction(new HRPCRunAction(fHRPCDetector));
 }
 
 // Create all User Actions here: 
@@ -43,12 +42,11 @@ void HRPCActionInitialization::Build() const {
   HRPCPrimaryGeneratorAction* primaryAction = new HRPCPrimaryGeneratorAction(fHRPCDetector);
   SetUserAction(primaryAction);
   // Set UserRunAction
-  //HRPCRunAction* runAction = new HRPCRunAction(fHRPCDetector, primaryAction);
-  //SetUserAction(runAction);
+  HRPCRunAction* runAction = new HRPCRunAction(fHRPCDetector, primaryAction);
+  SetUserAction(runAction);
   // Set UserEventAction
-  //HRPCEventAction* eventAction = new HRPCEventAction();
-  //SetUserAction(eventAction);
+  HRPCEventAction* eventAction = new HRPCEventAction();
+  SetUserAction(eventAction);
   // Set UserSteppingAction
-  //SetUserAction( new HRPCSteppingAction(fHRPCDetector, eventAction) );
-
+  SetUserAction( new HRPCSteppingAction(fHRPCDetector, eventAction));
 }  

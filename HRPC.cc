@@ -23,7 +23,7 @@
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
 
-//#include "HistoManager.hh"
+#include "HistoManager.hh"
 #include "TROOT.h"
 
 int main(int argc, char** argv) {  
@@ -77,7 +77,7 @@ int main(int argc, char** argv) {
     runManager->SetUserInitialization( pl );
     // 
     // Set an HistoManager
-    //HistoManager*  histo = new HistoManager();
+    HistoManager*  histo = new HistoManager();
 
 
     // 3. ActionInitialization = YourActionInitialization <- G4VUserActionInitialization 
@@ -125,13 +125,8 @@ int main(int argc, char** argv) {
       delete ui;
     } 
     
-    //
-    // delete the Visualization Manger 
+    // Job termination
     delete visManager;
-    
     //delete histo;
-    //
-    // At the end delete the RunManager
     delete runManager;
-	return 0;
 }

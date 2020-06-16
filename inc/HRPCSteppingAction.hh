@@ -1,19 +1,19 @@
 
-#ifndef MYBOXSTEPPINGACTION_HH
-#define MYBOXSTEPPINGACTION_HH
+#ifndef HRPCSTEPPINGACTION_HH
+#define HRPCSTEPPINGACTION_HH
 
 #include "G4UserSteppingAction.hh"
 #include "globals.hh"
-#include "MyBOXEventAction.hh"
-#include "MyBOXRunAction.hh"
+#include "HRPCEventAction.hh"
+#include "HRPCRunAction.hh"
 
 // forward declarations
-class MyBOXDetectorConstruction;
-class MyBOXEventAction;
+class HRPCDetectorConstruction;
+class HRPCEventAction;
 class G4VPhysicalVolume;
 
 
-class MyBOXSteppingAction : public G4UserSteppingAction {
+class HRPCSteppingAction : public G4UserSteppingAction {
 
   // Method declaration:
   public:
@@ -21,11 +21,11 @@ class MyBOXSteppingAction : public G4UserSteppingAction {
     // CTR: 
     //  - detector construction object is used to find out the target volume
     //  - event action is used to fill per-event cumulative values 
-	MyBOXSteppingAction(MyBOXDetectorConstruction* det, MyBOXEventAction* evtAction);
-    virtual ~MyBOXSteppingAction();
+	HRPCSteppingAction(HRPCDetectorConstruction* det, HRPCEventAction* evtAction);
+    virtual ~HRPCSteppingAction();
 
     // static access method (per accedere a stepping da altri file)
-    static MyBOXSteppingAction* Instance();
+    static HRPCSteppingAction* Instance();
 
     // Virtual method called by the kernel after each step
     virtual void UserSteppingAction(const G4Step* step);
@@ -73,11 +73,11 @@ class MyBOXSteppingAction : public G4UserSteppingAction {
   private:
 
     // static method (per accere da altri file)
-    static MyBOXSteppingAction* fgInstance;
+    static HRPCSteppingAction* fgInstance;
 
-    MyBOXDetectorConstruction*    fMyBOXDetector;
+    HRPCDetectorConstruction*    fHRPCDetector;
 
-    MyBOXEventAction*             fMyBOXEventAction;
+    HRPCEventAction*             fHRPCEventAction;
 
     // VARIABILI
 

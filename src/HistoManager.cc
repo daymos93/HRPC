@@ -128,7 +128,7 @@ void HistoManager::book()
 	timeinfo = localtime(&rawtime);
 	strftime(fStartTime, 50, "%d_%m_%Y_%H_%M_%S", timeinfo);
 
-	G4String fileName = std::string(fStartTime) +"_MyBOX.root";     //nome file root di uscita
+	G4String fileName = std::string(fStartTime) +"_HRPC.root";     //nome file root di uscita
 
 
 	rootFile = new TFile(fileName, "RECREATE");
@@ -522,7 +522,7 @@ nevent= nbEvents;
 //metodo per riempire istogramma energia cinetica di SOLO particelle incidenti che producono segnale (chiamato a fine di ogni evento in eventaction)
 void HistoManager::Fill_ttree_incident_signal()
 {
-f_Ek_incident_signal = MyBOXSteppingAction::Instance()->GetEk_incident_signal();	//usa metodo di steppingaction per copiare valore energia cinetica di p incidenti che hanno prodotto segnale
+f_Ek_incident_signal = HRPCSteppingAction::Instance()->GetEk_incident_signal();	//usa metodo di steppingaction per copiare valore energia cinetica di p incidenti che hanno prodotto segnale
 
  if (ttree_Ek_incident_signal) ttree_Ek_incident_signal->Fill();
 

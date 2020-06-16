@@ -4,11 +4,27 @@
 
 # ------------------------------------------------------------------------------
 # Change the default number of threads (in multi-threaded mode)
-#/run/numberOfThreads 4
+/run/numberOfThreads 1
+
+# ------------------------------------------------------------------------------  
+# My own UI command defined by "HRPCDetectorMessenger" to set    
+# properties of geometric                           
+# ==============================================================================
+#
+# set the gas-gap thickness to match the experimental one: 1.4 mm
+/HRPC/det/setGasGapThickness 1.4 mm
+#
+# set the detector distance to (0,0,0): R
+/HRPC/det/setDetectorDistance 0.8 m
+#
+# set the angle theta to move the detector in YZ plane in deg
+/HRPC/det/setDetectorAngle 150. deg
+# ------------------------------------------------------------------------------ 
 
 # ------------------------------------------------------------------------------  
 # to print information regarding the Run e.g. timing
-/run/verbose 2
+/run/verbose 1
+
 
 /event/verbose 0
 /tracking/verbose 0
@@ -16,12 +32,12 @@
 # ------------------------------------------------------------------------------
 # to print the commands 
 /control/verbose 2
-#/control/saveHistory
+/control/saveHistory
 
 # ------------------------------------------------------------------------------
 # initialization of the Run 
 /run/initialize
-#/run/dumpRegion 0
+/run/dumpRegion 0
 
 # ------------------------------------------------------------------------------
 # set the secondary production threshold smaller than the target thickness
@@ -30,7 +46,7 @@
 /run/setCutForAGivenParticle e+ 1 um
 
 
-/run/setCutForAGivenParticle proton 0 um			#vale anche per i neutroni
+#/run/setCutForAGivenParticle proton 0 um			#vale anche per i neutroni
 
 # ------------------------------------------------------------------------------
 # Set the primary generator (i.e. the Particle Gun) properties:
@@ -38,7 +54,7 @@
 # set the particle type 
 /gun/particle neutron		# settata nel file PrimaryGenerator, ma modificabile qua (questa viene usata)
 # set the particle energy
-/gun/energy 20. MeV 
+#/gun/energy 20 MeV 
 
 # ------------------------------------------------------------------------------
 # report progress of the simulation at each 100 000 -th event
@@ -46,6 +62,7 @@
 
 # ------------------------------------------------------------------------------
 # execute the simulation with 1 000 000 events
-/run/beamOn 100000
+/run/beamOn 200
+
 
 

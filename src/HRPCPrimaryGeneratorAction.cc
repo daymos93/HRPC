@@ -7,6 +7,24 @@
 #include "HRPCDetectorConstruction.hh"
 #include "Randomize.hh"
 
+// metodi per accere da ALTRI FILE
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+HRPCPrimaryGeneratorAction* HRPCPrimaryGeneratorAction::fgInstance = 0;
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+HRPCPrimaryGeneratorAction* HRPCPrimaryGeneratorAction::Instance()
+{
+// Static acces function via G4RunManager
+
+  return fgInstance;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 HRPCPrimaryGeneratorAction::HRPCPrimaryGeneratorAction(HRPCDetectorConstruction* det)
 :   G4VUserPrimaryGeneratorAction(),
     fHRPCDetector(det),

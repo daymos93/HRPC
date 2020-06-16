@@ -1,20 +1,20 @@
 
-#ifndef MYBOXRUNACTION_HH
-#define MYBOXRUNACTION_HH
+#ifndef HRPCRUNACTION_HH
+#define HRPCRUNACTION_HH
 
 #include "G4UserRunAction.hh"
 
 #include "G4String.hh"
 
 // forward declarations
-class MyBOXDetectorConstruction;
-class MyBOXPrimaryGeneratorAction;
-class MyBOXDetectorConstruction;
+class HRPCDetectorConstruction;
+class HRPCPrimaryGeneratorAction;
+class HRPCDetectorConstruction;
 class G4Run;
-class MyBOXRun;
+class HRPCRun;
 
 
-class MyBOXRunAction : public G4UserRunAction {
+class HRPCRunAction : public G4UserRunAction {
 
   // Method declaration:
   public:
@@ -22,11 +22,11 @@ class MyBOXRunAction : public G4UserRunAction {
     // CTR: 
     //  - detector construction object is used in the stepping action to check target
     //  - primary generator is used to re-set position for workers and to get E0 (set only for workers)
-	MyBOXRunAction(MyBOXDetectorConstruction* det, MyBOXPrimaryGeneratorAction* prim = nullptr);
-    virtual ~MyBOXRunAction();
+	HRPCRunAction(HRPCDetectorConstruction* det, HRPCPrimaryGeneratorAction* prim = nullptr);
+    virtual ~HRPCRunAction();
 
     // static access method  (per accere da altri file)
-    static MyBOXRunAction* Instance();
+    static HRPCRunAction* Instance();
     
     // Virtual method to generate YourRun for each Worker threads
     virtual G4Run* GenerateRun();    
@@ -35,19 +35,19 @@ class MyBOXRunAction : public G4UserRunAction {
     virtual void   BeginOfRunAction(const G4Run*);
 
     // Virtual method that is called by the RunManager after the last event finished
-    virtual void   EndOfRunAction(const G4Run*);
+    virtual void   EndOfRunAction(const G4Run* aRun);
 
 
   // Data member declarations:
   private:
 
-  	MyBOXDetectorConstruction*    fMyBOXDetector;
+  	HRPCDetectorConstruction*    fHRPCDetector;
 
-  	MyBOXPrimaryGeneratorAction*  fMyBOXPrimary;
+  	HRPCPrimaryGeneratorAction*  fHRPCPrimary;
 
-    MyBOXRun*                     fMyBOXRun;
+    HRPCRun*                     fHRPCRun;
     
-    static MyBOXRunAction* fgInstance;  // per accere da altri file
+    static HRPCRunAction* fgInstance;  // per accere da altri file
 
     G4long fTime;				//conta tempo per eseguire run
     

@@ -1,0 +1,3 @@
+/home/dayron/Geant4/HRPC/build/CMakeFiles/rebuild_cache.dir
+/home/dayron/Geant4/HRPC/build/CMakeFiles/HRPC.dir
+/home/dayron/Geant4/HRPC/build/CMakeFiles/edit_cache.dir
